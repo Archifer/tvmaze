@@ -36,10 +36,13 @@ npm run lint
 Due to time restrictions I wasn't able to fully implement everything
 I wanted. This is a todo list:
 
+- Create rating filter; we can reuse the same logic from the genre component,
+but due time restrictions i left this out.
 - Divide the components further:
-  - genre filter component
-  - filter and search row
+  - genre filter and search row on dashboard
 - Write E2E tests
+  - playwright
+- Write more unit tests
 
 ## Type Support for `.vue` Imports in TS
 

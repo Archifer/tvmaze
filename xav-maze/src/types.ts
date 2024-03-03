@@ -8,6 +8,7 @@ interface Series {
 }
 
 // TODO Extend with more details from api
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface SeriesDetails extends Series {
   imageOriginalUrl: string;
   airsTime: string;
