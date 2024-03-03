@@ -25,8 +25,7 @@ export default {
       type: Array as () => Series[],
       required: true,
     },
-  },
-  computed: {}
+  }
 }
 </script>
 

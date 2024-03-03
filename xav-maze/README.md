@@ -3,6 +3,13 @@
 Example front-end using Vue3 and node 20 that uses
 the api as discussed on https://www.tvmaze.com/api.
 
+## Architecture
+The codebase has the following architecture:
+- Vue3
+- Typescript
+- SCSS
+- Uses vite for testing
+
 ## How to run
 Currently you need:
 - Node version: v20.11.1
@@ -30,11 +37,29 @@ npm run build
 npm run test:unit
 ```
 
+* There is a "[Vue warn]: Failed to resolve component: RouterLink" warning on two unit tests,
+did not have the time to resolve this.
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
+
+## Performed work
+- Dashboard
+  - Nav item to home page called "XAV TV MAZE".
+  - Genre filter component for currently loaded tv serries.
+  - Search function which overwrites the dashboard defaults shown shows.
+  - Dashboard loads by default the first 10 tv-series id's for
+  the serie cards.
+  - Series preview card component which displays basic information
+  on a show.
+  - Series details page that uses the route param for getting
+  the requested series information.
+  - A button to request 10 more shows on the dashboard using the
+  upcoming 10 id values.
+  - Requests to an undefined page get rerouted to a 404 page.
 
 ## Left over work
 Due to time restrictions I wasn't able to fully implement everything
@@ -57,68 +82,6 @@ but due time restrictions i left this out.
 - Setup dependency life-cycle pipeline to automatically update dependecies
   - Could be done with dependabot or renovate
 - Setup release pipeline to a test and prod server
+- fix fade in animation of modal
+- better mobile alignment nav item and filter buttons on dashboard
 - Some todo's in the codebase
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
-
-```sh
-# Install browsers for the first run
-npx playwright install
-
-# When testing on CI, must build the project first
-npm run build
-
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
