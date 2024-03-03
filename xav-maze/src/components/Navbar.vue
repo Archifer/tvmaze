@@ -5,13 +5,13 @@
 </script>
 
 <template>
-  <div id="navbar">
+  <nav id="navbar">
     <ul>
       <li class="icon">
         <RouterLink class="routerLink" to='/'><h3>XAV TV MAZE</h3></RouterLink>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 
 <style scoped lang="scss">
