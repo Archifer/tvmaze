@@ -3,7 +3,6 @@
     <div class="buttonWrapper">
       <button class="moreShowsButton" @click="showModal = true">Filter genres</button>
       <genres-filter-modal :isOpen="showModal" :genres="genres" @close="showModal = false" @filteredGenres="handleFilteredGenres" />
-      <button class="moreShowsButton" @click="showModal = true">Set min rating</button>
 
       <input class="searchBox" type="text" v-model="searchText" @input="searchShows" placeholder='Search for a show'>
     </div>

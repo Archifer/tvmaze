@@ -4,6 +4,10 @@ Example front-end using Vue3 and node 20 that uses
 the api as discussed on https://www.tvmaze.com/api.
 
 ## How to run
+Currently you need:
+- Node version: v20.11.1
+- NPM version: 10.2.4
+
 ```sh
 npm install
 ```
@@ -43,6 +47,17 @@ but due time restrictions i left this out.
 - Write E2E tests
   - playwright
 - Write more unit tests
+- Follow the Web Content Accessibility Guidelines (WCAG)
+  - Add aria attributes to all components
+  - Check and correct tab flow
+  - Check color combinations
+  - Test with accessibility tools such as Lighthouse
+- Check performance issues with search with a large response
+  - technically a backend issue with pagination.
+- Setup dependency life-cycle pipeline to automatically update dependecies
+  - Could be done with dependabot or renovate
+- Setup release pipeline to a test and prod server
+- Some todo's in the codebase
 
 ## Type Support for `.vue` Imports in TS
 
