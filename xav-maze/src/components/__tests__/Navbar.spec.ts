@@ -6,6 +6,6 @@ import Navbar from '../Navbar.vue'
 describe('Navbar', () => {
   it('renders properly', () => {
     const wrapper = mount(Navbar)
-    expect(wrapper.text()).toContain('Hello Vitest')
+    expect(wrapper.text()).toContain('XAV TV MAZE')
   })
 })

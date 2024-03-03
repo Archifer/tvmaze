@@ -1,11 +1,16 @@
 
 <template>
-  <div>
+  <div v-if="seriesList.length > 0">
     <ul class="seriesList">
       <li class="seriesCard" v-for="(item, index) in seriesList" :key="index">
-        <series-preview-card :series=item />
+        <RouterLink class="routerLink" :to="'/series/' + item.seriesId">
+          <series-preview-card :series=item />
+        </RouterLink>
       </li>
     </ul>
+  </div>
+  <div v-else>
+    <h1>No shows were found</h1>
   </div>
 </template>
 
@@ -26,6 +31,17 @@ export default {
 </script>
 
 <style lang="scss">
+@import './../assets/colors.scss';
+h1 {
+  color: $text-header-color;
+  text-align: center;
+}
+
+
+.routerLink {
+  text-decoration: none;
+}
+
 .seriesList {
   display: flex;
   flex-wrap: wrap;

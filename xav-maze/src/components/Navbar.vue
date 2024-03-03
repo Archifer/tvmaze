@@ -8,13 +8,7 @@
   <div id="navbar">
     <ul>
       <li class="icon">
-        <h3>XAV TV MAZE</h3>
-      </li>
-      <li>
-        Genre
-      </li>
-      <li>
-        Min Rating
+        <RouterLink class="routerLink" to='/'><h3>XAV TV MAZE</h3></RouterLink>
       </li>
     </ul>
   </div>
@@ -39,14 +33,15 @@
     }
 }
 
-
-
 .icon {
-  color: $text-header-color;
-
   h3 {
     margin-top: 0px;
     margin-bottom: 0px;
+    color: $text-header-color;
+  }
+
+  routerLink {
+    text-decoration: none;
   }
 }
 </style>

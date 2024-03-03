@@ -1,10 +1,45 @@
 # xav-maze
 
-This template should help get you started developing with Vue 3 in Vite.
+Example front-end using Vue3 and node 20 that uses
+the api as discussed on https://www.tvmaze.com/api.
 
-## Recommended IDE Setup
+## How to run
+```sh
+npm install
+```
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
+
+## Left over work
+Due to time restrictions I wasn't able to fully implement everything
+I wanted. This is a todo list:
+
+- Divide the components further:
+  - genre filter component
+  - filter and search row
+- Write E2E tests
 
 ## Type Support for `.vue` Imports in TS
 

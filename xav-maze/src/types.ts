@@ -3,18 +3,15 @@ interface Series {
   description: string;
   imageUrl: string;
   seriesId: string;
+  genres: string[];
+  rating: string;
 }
 
-// class Series implements ISeries {
-//   title: string;
-//   description: string;
-//   imageUrl: string;
-//   seriesId: string;
-//   constructor(title: string, description: string, imageurl: string, seriesId: string) {
-//     this.title = title;
-//     this.description = description;
-//     this.imageUrl = imageurl;
-//     this.seriesId = seriesId;
-//   }
-// }
+// TODO Extend with more details from api
+interface SeriesDetails extends Series {
+  imageOriginalUrl: string;
+  airsTime: string;
+  airsDate: string[];
+  status: string;
+}
 

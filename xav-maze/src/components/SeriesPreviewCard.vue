@@ -1,6 +1,6 @@
 <template>
   <div class="seriesPreviewCard" :id=dynamicId>
-    <img :src=series.imageUrl alt="Avatar">
+    <img :src=series.imageUrl alt="Avatar" />
     <div class="container">
       <h3><b>{{series.title}}</b></h3>
       <p>{{stripDescription(series.description)}}</p>
@@ -47,11 +47,16 @@ export default {
 .seriesPreviewCard {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 15px;
-  transition: 0.3s;
   border-radius: 5px;
   color: $text-color-light;
   background-color: $bg-color-light;
   width: 210px;
+
+  transition: background-color 0.3s ease, cursor 0.3s ease; // Transition the color change over 0.3 seconds with ease
+  &:hover {
+    background-color: white;
+    cursor: pointer;
+  }
 }
 
 .seriesPreviewCard:hover {
@@ -64,5 +69,6 @@ img {
 
 .container {
   padding: 2px 16px;
+  min-height: 320px; // ugly quick solution for same height card if not too many characters
 }
 </style>

@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/series/:id',
+      name: 'details',
+      component: () => import('../views/SeriesDetailsView.vue')
+    },
+    {
       path: '/:catchAll(.*)', // Matches any route that hasn't been defined
       name: 'NotFound',
       component: NotFoundViewVue
