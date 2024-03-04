@@ -2,7 +2,11 @@
   <div>
     <div class="buttonWrapper">
       <button class="moreShowsButton" @click="showModal = true">Filter genres</button>
-      <genres-filter-modal :isOpen="showModal" :genres="genres" @close="showModal = false" @filteredGenres="handleFilteredGenres" />
+      <filter-modal :isOpen="showModal"
+                     :genres="genres"
+                     @close="showModal = false"
+                     @filteredGenres="handleFilteredGenres"
+                     @filteredRating="handleFilteredRating" />
 
       <input class="searchBox" type="text" v-model="searchText" @input="searchShows" placeholder='Search for a show'>
     </div>
@@ -16,7 +20,7 @@
 <script lang="ts">
 import SeriesPreviewList from '@/components/SeriesPreviewList.vue'
 import axios from 'axios'
-import GenresFilterModal from '@/components/GenresFilterModal.vue'
+import FilterModal from '@/components/FilterModal.vue'
 
 const axiosClient = axios.create({
   baseURL: 'https://api.tvmaze.com/'
@@ -25,7 +29,7 @@ const axiosClient = axios.create({
 export default {
   components: {
     "series-preview-list": SeriesPreviewList,
-    "genres-filter-modal": GenresFilterModal,
+    "filter-modal": FilterModal,
   },
   data() {
     return {
@@ -35,6 +39,7 @@ export default {
       // TODO Extend with api information
       genres: ['Action', 'Crime', 'Science-Fiction', 'Adventure', 'Comedy', 'Drama', 'Fantasy'] as string[],
       filteredGenres: [] as string[],
+      filteredRating: 0,
 
       // TODO Move to own component but ran out of time to do cleanly :C
       searchText: '',
@@ -51,20 +56,26 @@ export default {
         completeList = this.seriesList;
       }
 
-      if (this.filteredGenres.length == 0) {
-        return completeList;
-      }
-
       for (let i = 0; i < completeList.length; i++) {
         let serie = completeList[i];
 
+        console.log(serie.title);
+        console.log(typeof serie.rating);
+        if (this.filteredRating > 0 && ((typeof (serie.rating) === 'object') || this.filteredRating > parseInt(serie.rating))) {
+          continue;
+        }
+
         // Check for overlap in genres
+        if (this.filteredGenres.length == 0) {
+          filteredSeries.push(serie);
+          continue;
+        }
+
         if (!(serie.genres.some(item => this.filteredGenres.includes(item)))) {
           continue;
         }
 
         // Todo do the same for rating
-
         filteredSeries.push(serie);
       }
 
@@ -101,6 +112,9 @@ export default {
     },
     handleFilteredGenres(genres: string[]) {
       this.filteredGenres = genres;
+    },
+    handleFilteredRating(filteredRating: number) {
+      this.filteredRating = filteredRating;
     },
     async searchShows() {
       try {

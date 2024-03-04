@@ -5,12 +5,15 @@
 
   <transition name="fade">
     <div v-if="isOpen" class="modal">
+      <h2>Select Min rating</h2>
+      <input type="number" v-model="filteredRating" @input="validateNumber">
+
       <h2>Select Genres</h2>
       <div v-for="(genre, index) in genres" :key="index">
         <input type="checkbox" :id="'genre_' + index" :value="genre" v-model="filteredGenres">
         <label :for="'genre_' + index">{{ genre }}</label>
       </div>
-      <button @click="submitGenres">Submit</button>
+      <button @click="submitFilters">Submit</button>
     </div>
   </transition>
 </template>
@@ -29,23 +32,29 @@ export default {
       required: true
     }
   },
-  emits: ['close', 'filteredGenres'],
+  emits: ['close', 'filteredGenres', 'filteredRating'],
   setup(props, { emit }) {
     const filteredGenres = ref<string[]>([]);
+    const filteredRating = ref<number>(0);
 
-    const submitGenres = () => {
+    const submitFilters = () => {
       emit('filteredGenres', filteredGenres.value);
+      emit('filteredRating', filteredRating.value);
       emit('close');
     };
-
     return {
       filteredGenres,
-      submitGenres
+      filteredRating,
+      submitFilters: submitFilters,
     };
   },
   methods: {
-
-  },
+    validateNumber() {
+      if (this.filteredRating < 0 || this.filteredRating > 10) {
+        this.filteredRating = Math.min(Math.max(this.filteredRating, 0), 10);
+      }
+    }
+  }
 }
 </script>
 

@@ -49,7 +49,8 @@ npm run lint
 ## Performed work
 - Dashboard
   - Nav item to home page called "XAV TV MAZE".
-  - Genre filter component for currently loaded tv serries.
+  - Genre filter component for currently loaded tv series.
+  - Rating filter to set minimum required rating value.
   - Search function which overwrites the dashboard defaults shown shows.
   - Dashboard loads by default the first 10 tv-series id's for
   the serie cards.
@@ -65,13 +66,12 @@ npm run lint
 Due to time restrictions I wasn't able to fully implement everything
 I wanted. This is a todo list:
 
-- Create rating filter; we can reuse the same logic from the genre component,
-but due time restrictions i left this out.
-- Divide the components further:
-  - genre filter and search row on dashboard
 - Write E2E tests
   - playwright
 - Write more unit tests
+  - for each remaining component
+    - unit test filter where you mock the api responses
+  - for each view
 - Follow the Web Content Accessibility Guidelines (WCAG)
   - Add aria attributes to all components
   - Check and correct tab flow
