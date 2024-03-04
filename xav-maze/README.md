@@ -11,7 +11,7 @@ The codebase has the following architecture:
 - Uses vite for testing
 
 ## How to run
-Currently you need:
+Currently, you need:
 - Node version: v20.11.1
 - NPM version: 10.2.4
 
@@ -66,6 +66,7 @@ npm run lint
 Due to time restrictions I wasn't able to fully implement everything
 I wanted. This is a todo list:
 
+- Fix RouterLink warning in SeriesPreviewList unit test
 - Write E2E tests
   - playwright
 - Write more unit tests

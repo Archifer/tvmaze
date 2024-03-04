@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import SeriesPreviewList from '../SeriesPreviewList.vue'
 import SeriesPreviewCard from '../SeriesPreviewCard.vue'
+import router from '../../router/index'
 
 // TODO use before each to create and customise series object
 describe('SeriesPreviewCard', () => {
@@ -25,6 +26,7 @@ describe('SeriesPreviewCard', () => {
     };
 
     const seriesList: Series[] = [series1, series2];
+
     const wrapper = shallowMount(SeriesPreviewList, {
       props: {
         seriesList,
@@ -38,6 +40,9 @@ describe('SeriesPreviewCard', () => {
   it('Check if correct text is displayed when no shows are passed', () => {
     const seriesList: Series[] = [];
     const wrapper = shallowMount(SeriesPreviewList, {
+      global: {
+        plugins: [router],
+      },
       props: {
         seriesList,
       }
