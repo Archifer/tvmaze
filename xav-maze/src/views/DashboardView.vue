@@ -59,8 +59,6 @@ export default {
       for (let i = 0; i < completeList.length; i++) {
         let serie = completeList[i];
 
-        console.log(serie.title);
-        console.log(typeof serie.rating);
         if (this.filteredRating > 0 && ((typeof (serie.rating) === 'object') || this.filteredRating > parseInt(serie.rating))) {
           continue;
         }
@@ -75,7 +73,6 @@ export default {
           continue;
         }
 
-        // Todo do the same for rating
         filteredSeries.push(serie);
       }
 
